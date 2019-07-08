@@ -1,0 +1,199 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<title>Simulasi Lalulintas</title>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+			integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+			crossorigin=""
+		/>
+		<link rel="stylesheet" href="map/style.css" />
+		<link rel="stylesheet" href="map/measure.css" />
+
+		<script
+			src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+			integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+			crossorigin=""
+		></script>
+	</head>
+	<body data-gr-c-s-loaded="true">
+		<br />
+		<h2>Simulasi Lalulintas</h2>
+		<br />
+		<div id="main">
+			<div
+				id="map"
+				class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
+				tabindex="0"
+				style="position: relative;"
+			>
+				<div
+					class="leaflet-pane leaflet-map-pane"
+					style="transform: translate3d(0px, 0px, 0px);"
+				>
+					<div class="leaflet-pane leaflet-tile-pane">
+						<div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+							<div
+								class="leaflet-tile-container leaflet-zoom-animated"
+								style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"
+							>
+								<img
+									alt=""
+									role="presentation"
+									src="./map/24833.png"
+									class="leaflet-tile leaflet-tile-loaded"
+									style="width: 256px; height: 256px; transform: translate3d(87px, 16px, 0px); opacity: 1;"
+								/><img
+									alt=""
+									role="presentation"
+									src="./map/24832.png"
+									class="leaflet-tile leaflet-tile-loaded"
+									style="width: 256px; height: 256px; transform: translate3d(87px, -240px, 0px); opacity: 1;"
+								/><img
+									alt=""
+									role="presentation"
+									src="./map/24833(1).png"
+									class="leaflet-tile leaflet-tile-loaded"
+									style="width: 256px; height: 256px; transform: translate3d(-169px, 16px, 0px); opacity: 1;"
+								/><img
+									alt=""
+									role="presentation"
+									src="./map/24833(2).png"
+									class="leaflet-tile leaflet-tile-loaded"
+									style="width: 256px; height: 256px; transform: translate3d(343px, 16px, 0px); opacity: 1;"
+								/><img
+									alt=""
+									role="presentation"
+									src="./map/24834.png"
+									class="leaflet-tile leaflet-tile-loaded"
+									style="width: 256px; height: 256px; transform: translate3d(87px, 272px, 0px); opacity: 1;"
+								/><img
+									alt=""
+									role="presentation"
+									src="./map/24832(1).png"
+									class="leaflet-tile leaflet-tile-loaded"
+									style="width: 256px; height: 256px; transform: translate3d(-169px, -240px, 0px); opacity: 1;"
+								/><img
+									alt=""
+									role="presentation"
+									src="./map/24832(2).png"
+									class="leaflet-tile leaflet-tile-loaded"
+									style="width: 256px; height: 256px; transform: translate3d(343px, -240px, 0px); opacity: 1;"
+								/><img
+									alt=""
+									role="presentation"
+									src="./map/24834(1).png"
+									class="leaflet-tile leaflet-tile-loaded"
+									style="width: 256px; height: 256px; transform: translate3d(-169px, 272px, 0px); opacity: 1;"
+								/><img
+									alt=""
+									role="presentation"
+									src="./map/24834(2).png"
+									class="leaflet-tile leaflet-tile-loaded"
+									style="width: 256px; height: 256px; transform: translate3d(343px, 272px, 0px); opacity: 1;"
+								/>
+							</div>
+						</div>
+					</div>
+					<div class="leaflet-pane leaflet-shadow-pane"></div>
+					<div class="leaflet-pane leaflet-overlay-pane"></div>
+					<div class="leaflet-pane leaflet-marker-pane"></div>
+					<div class="leaflet-pane leaflet-tooltip-pane"></div>
+					<div class="leaflet-pane leaflet-popup-pane"></div>
+					<div
+						class="leaflet-proxy leaflet-zoom-animated"
+						style="transform: translate3d(4.37623e+06px, 6.35743e+06px, 0px) scale(32768);"
+					></div>
+				</div>
+				<div class="leaflet-control-container">
+					<div class="leaflet-top leaflet-left">
+						<div class="leaflet-control-zoom leaflet-bar leaflet-control">
+							<a
+								class="leaflet-control-zoom-in"
+								href="javascript:void();"
+								title="Zoom in"
+								role="button"
+								aria-label="Zoom in"
+								>+</a
+							><a
+								class="leaflet-control-zoom-out"
+								href="javascript:void();"
+								title="Zoom out"
+								role="button"
+								aria-label="Zoom out"
+								>−</a
+							>
+						</div>
+					</div>
+					<div class="leaflet-top leaflet-right"></div>
+					<div class="leaflet-bottom leaflet-left"></div>
+				</div>
+			</div>
+			<div style="display: block; justify-content: center;padding-top: 20px;">
+				<button type="Button" id="reset">Start</button>
+				<button type="Button" id="run" disabled="">Run</button>
+			</div>
+			<div id="commander" style="display: none;">
+				<div id="data">
+					<div class="datum">
+						Ticks:
+						<div class="datum_value" id="tick_value"></div>
+					</div>
+					<div class="datum">
+						Healthy Residents:
+						<div class="datum_value" id="healthy_value"></div>
+					</div>
+					<div class="datum">
+						Infected Residents:
+						<div class="datum_value" id="infected_value"></div>
+					</div>
+				</div>
+				<div id="options">
+					<div class="datum option">
+						Agent Speed:<br /><input
+							type="range"
+							min=".2"
+							max="10"
+							step=".2"
+							value="1"
+							class="slider"
+							id="speed_controller"
+						/>
+					</div>
+					<div class="datum option">
+						Animation Quality:<br /><input
+							type="range"
+							min="1"
+							max="5"
+							value="5"
+							class="slider"
+							id="animation_interval"
+						/><i>higher = smoother but slower</i>
+					</div>
+					<div class="datum option">
+						Infectivity:<br /><input
+							type="range"
+							min="0"
+							max=".006"
+							step=".00001"
+							value=".00001"
+							class="slider"
+							id="infection_probability"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="./map/measure.js"></script>
+		<script type="text/javascript" src="./map/interface.js"></script>
+		<script type="text/javascript" src="./map/map_data.js"></script>
+		<script type="text/javascript" src="./map/street_features.js"></script>
+		<script type="text/javascript" src="./map/unit_features.js"></script>
+		<script type="text/javascript" src="./map/agentmaps.js"></script>
+		<script type="text/javascript" src="./map/basic_contagion.js"></script>
+		<script></script>
+	</body>
+</html>
